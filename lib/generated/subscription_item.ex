@@ -6,6 +6,8 @@ defmodule Stripe.SubscriptionItem do
     defstruct [
       :billing_thresholds,
       :created,
+      :current_period_end,
+      :current_period_start,
       :id,
       :metadata,
       :object,
@@ -20,6 +22,8 @@ defmodule Stripe.SubscriptionItem do
     @type t :: %__MODULE__{
             billing_thresholds: term | nil,
             created: integer,
+            current_period_end: integer | nil,
+            current_period_start: integer | nil,
             id: binary,
             metadata: term,
             object: binary,
