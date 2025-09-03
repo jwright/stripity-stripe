@@ -145,7 +145,7 @@ defmodule Stripe.Invoice do
             paid: boolean,
             paid_out_of_band: boolean,
             parent: term | nil,
-            payments: list(payments) | nil,
+            payments: map() | nil,
             payment_intent: (binary | Stripe.PaymentIntent.t()) | nil,
             payment_settings: term,
             period_end: integer,
@@ -416,17 +416,6 @@ defmodule Stripe.Invoice do
                 | :wechat_pay
               )
               | binary
-          }
-  )
-
-  (
-    @typedoc "Payments made on this invoice, if any."
-    @type payments :: %{
-            optional(:amount_paid) => integer | nil,
-            optional(:amount_requested) => integer,
-            optional(:currency) => binary,
-            optional(:is_default) => boolean,
-            optional(:payment) => map
           }
   )
 
